@@ -1,5 +1,5 @@
 // WikiPathways Java library,
-// Copyright 2014-2015 WikiPathways
+// Copyright 2014-2022 WikiPathways
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ import java.rmi.RemoteException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.pathvisio.core.model.ConverterException;
-import org.pathvisio.core.model.Pathway;
+import org.pathvisio.libgpml.io.ConverterException;
+import org.pathvisio.libgpml.model.PathwayModel;
 import org.pathvisio.wikipathways.webservice.WSPathwayInfo;
 import org.wikipathways.client.test.utils.ConnectionSettings;
 import org.wikipathways.client.test.utils.UserProperties;
@@ -52,7 +52,7 @@ public class TestCreatePathway {
 	public void test() throws RemoteException, ConverterException, UnsupportedEncodingException {
 		client.login(props.getProperty("username"), props.getProperty("password"));
 		
-		Pathway p = new Pathway();
+		PathwayModel p = new PathwayModel();
 		p.readFromXml(new File("resources/createPathway.gpml"), true);
 		
 		WSPathwayInfo info = client.createPathway(p);

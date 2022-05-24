@@ -1,5 +1,5 @@
 // WikiPathways Java library,
-// Copyright 2014-2015 WikiPathways
+// Copyright 2014-2022 WikiPathways
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,24 +22,24 @@ import java.rmi.RemoteException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.pathvisio.core.model.ConverterException;
-import org.pathvisio.core.model.Pathway;
+import org.pathvisio.libgpml.io.ConverterException;
+import org.pathvisio.libgpml.model.PathwayModel;
 import org.pathvisio.wikipathways.webservice.WSPathway;
 import org.wikipathways.client.test.utils.ConnectionSettings;
 
 /**
  * JUnit Test for webservice function: getPathway
- * @author mkutmon
+ * 
+ * @author mkutmon, finterly
  */
 public class TestGetPathway {
 
 	private WikiPathwaysClient client;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		client = ConnectionSettings.createClient();
 	}
-
 
 	@Test
 	public void testId() throws RemoteException, ConverterException {
@@ -48,13 +48,13 @@ public class TestGetPathway {
 		assertEquals("", "Mus musculus", p.getSpecies());
 		assertEquals("", "Statin Pathway", p.getName());
 	}
-	
+
 	@Test
 	public void testRevision() throws RemoteException, ConverterException {
 		String id = "WP1";
 		int revision = 53530;
 		WSPathway p = client.getPathway(id, revision);
-		Pathway p1 = WikiPathwaysClient.toPathway(p);
+		PathwayModel p1 = WikiPathwaysClient.toPathway(p);
 		System.out.println(p1.getDataNodeXrefs().size());
 		assertEquals("", "Mus musculus", p.getSpecies());
 		assertEquals("", "Statin Pathway", p.getName());
