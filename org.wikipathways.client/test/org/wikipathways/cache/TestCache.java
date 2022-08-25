@@ -30,7 +30,7 @@ public class TestCache {
 		if (f != null) {
 			PathwayModel p = new PathwayModel();
 			p.readFromXml(f, false);
-			assertTrue(p.getPathway().getTitle().equals("Sandbox Pathway"));
+			assertTrue(p.getPathway().getTitle().equals("Sandbox pathway test")); //was "Sandbox Pathway"
 		}
 	}
 

@@ -44,7 +44,8 @@ public class TestGetCurationTags {
 		// has tutorial pathway tag?
 		boolean tutorial = false;
 		for(WSCurationTag tag : tags) {
-			if(tag.getDisplayName().equals("Tutorial pathway")) {
+			// Used to be called "Tutorial pathway" 
+			if(tag.getDisplayName().equals("Test pathway")) {
 				tutorial = true;
 			}
 		}
@@ -60,7 +61,7 @@ public class TestGetCurationTags {
 		// has tutorial pathway tag?
 		boolean tutorial2 = false;
 		for(WSCurationTag tag : tags2) {
-			if(tag.getDisplayName().equals("Tutorial pathway")) {
+			if(tag.getDisplayName().equals("Test pathway")) {
 				tutorial2 = true;
 			}
 		}

@@ -45,6 +45,6 @@ public class TestGetPathwayHistory {
 		c.set(2011, 1, 1, 0, 0, 0);
 		
 		WSPathwayHistory hist = client.getPathwayHistory(id, c.getTime());
-		assertTrue(hist.getHistory(0).getRevision().equals("40411"));
+		assertTrue(hist.getHistory(0).getRevision().equals("123009")); //was 40411
 	}
 }

@@ -69,7 +69,7 @@ public class WikiPathwaysClient {
 	 * @throws ServiceException
 	 */
 	public WikiPathwaysClient(URL portAddress) {
-		MIMShapes.registerShapes(); //TODO no longer have mim shapes...
+//		MIMShapes.registerShapes(); // no longer have mim shapes...
 
 		HttpClientBuilder builder = HttpClientBuilder.create();
 		String proxyString = System.getenv("http_proxy");
@@ -256,7 +256,7 @@ public class WikiPathwaysClient {
 	public String updatePathway(String id, PathwayModel pathway, String description, int revision)
 			throws ConverterException, RemoteException, UnsupportedEncodingException {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		GPMLFormat gpmlFormat = new GPMLFormat(null); //TODO 
+		GPMLFormat gpmlFormat = new GPMLFormat(GPMLFormat.GPML2013a); //2013a 
 		gpmlFormat.writeToXml(pathway, out, true);
 		return port.updatePathway(id, description, out, revision, auth);
 	}
@@ -275,7 +275,7 @@ public class WikiPathwaysClient {
 	public WSPathwayInfo createPathway(PathwayModel pathway)
 			throws RemoteException, ConverterException, UnsupportedEncodingException {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		GPMLFormat gpmlFormat = new GPMLFormat(null); //TODO 
+		GPMLFormat gpmlFormat = new GPMLFormat(GPMLFormat.GPML2013a); //2013a 
 		gpmlFormat.writeToXml(pathway, out, true);
 		return port.createPathway(out, auth);
 	}

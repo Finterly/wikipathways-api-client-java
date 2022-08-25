@@ -39,6 +39,7 @@ public class TestGetUserByOrcid {
 	@Test
 	public void test() throws RemoteException {
 		String user = client.getUserByOrcid("0000-0002-7699-8191");
+		System.out.println(user);
 		assertEquals(user, "Mkutmon");
 	}
 

@@ -46,19 +46,19 @@ public class TestGetPathway {
 		String id = "WP1";
 		WSPathway p = client.getPathway(id);
 		assertEquals("", "Mus musculus", p.getSpecies());
-		assertEquals("", "Statin Pathway", p.getName());
+		assertEquals("", "Statin pathway", p.getName());
 	}
 
 	@Test
 	public void testRevision() throws RemoteException, ConverterException {
 		String id = "WP1";
-		int revision = 53530;
+		int revision = 117947; //was 53530
 		WSPathway p = client.getPathway(id, revision);
 		PathwayModel p1 = WikiPathwaysClient.toPathway(p);
 		System.out.println(p1.getDataNodeXrefs().size());
 		assertEquals("", "Mus musculus", p.getSpecies());
-		assertEquals("", "Statin Pathway", p.getName());
-		assertTrue(p.getGpml().contains("http://genmapp.org/GPML/2010a"));
+		assertEquals("", "Statin pathway", p.getName());
+		assertTrue(p.getGpml().contains("http://pathvisio.org/GPML/2013a"));
 	}
 
 }
